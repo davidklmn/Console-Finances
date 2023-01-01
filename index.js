@@ -152,13 +152,13 @@ console.log(
     "\n" +
     "Greatest Increase in Profits: " +
     finances[greatestIndex + 1][0] +
-    " (" +
+    " ($" +
     greatest +
     ")" +
     "\n" +
     "Greatest Decrease in Profits: " +
     finances[lowestIndex + 1][0] +
-    " (" +
+    " ($" +
     lowest +
     ")"
 );
