@@ -1,4 +1,4 @@
-###Console Finances JavaScript Challange
+# Console Finances JavaScript Challange
 First JavaScript challange of the course
 
 https://davidklmn.github.io/Console-Finances/
