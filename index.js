@@ -88,7 +88,7 @@ var finances = [
 ];
 
 // The total number of months included in the dataset.
-var totalMonths = Object.keys(finances).length;
+var totalMonths = finances.length;
 
 // The net total amount of Profit/Losses over the entire period.
 // add everything together
@@ -113,16 +113,29 @@ var changesSum = 0;
 for (var i = 0; i < changesArr.length; i++) {
   changesSum += changesArr[i];
 }
-console.log(changesSum);
-
 changesAverage = changesSum / changesArr.length;
-console.log(changesAverage);
 
 // The greatest increase in profits (date and amount) over the entire period.
 // start with 0
 //   check the last increase. If it's bigger than 0, keep track of the new biggest one.
-//   in a loop
+var greatest = 0;
+var greatestIndex = 0;
+for (var i = 0; i < changesArr.length; i++) {
+  if (changesArr[i] > greatest) {
+    greatest = changesArr[i];
+    greatestIndex = i;
+  }
+}
 // The greatest decrease in losses (date and amount) over the entire period.
+var lowest = 0;
+var lowestIndex = 0;
+for (var i = 0; i < changesArr.length; i++) {
+  if (changesArr[i] < lowest) {
+    lowest = changesArr[i];
+    lowestIndex = i;
+  }
+}
+
 console.log(
   "Financial Analysis" +
     "\n" +
@@ -135,9 +148,17 @@ console.log(
     sum +
     "\n" +
     "Average  Change: " +
-    changesAverage +
+    changesAverage.toFixed(2) +
     "\n" +
-    "Greatest Increase in Profits:" +
+    "Greatest Increase in Profits: " +
+    finances[greatestIndex + 1][0] +
+    " (" +
+    greatest +
+    ")" +
     "\n" +
-    "Greatest Decrease in Profits:"
+    "Greatest Decrease in Profits: " +
+    finances[lowestIndex + 1][0] +
+    " (" +
+    lowest +
+    ")"
 );
