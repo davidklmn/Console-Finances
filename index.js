@@ -105,9 +105,18 @@ for (var i = 0; i < finances.length; i++) {
 // maybe put all the changes into an array? using .push(...) ?
 var changesArr = [];
 for (var i = 0; i < finances.length - 1; i++) {
-  var changes = finances[i][1] + finances[i + 1][1];
+  var changes = finances[i + 1][1] - finances[i][1];
   changesArr.push(changes);
 }
+
+var changesSum = 0;
+for (var i = 0; i < changesArr.length; i++) {
+  changesSum += changesArr[i];
+}
+console.log(changesSum);
+
+changesAverage = changesSum / changesArr.length;
+console.log(changesAverage);
 
 // The greatest increase in profits (date and amount) over the entire period.
 // start with 0
@@ -126,7 +135,7 @@ console.log(
     sum +
     "\n" +
     "Average  Change: " +
-    averageChanges +
+    changesAverage +
     "\n" +
     "Greatest Increase in Profits:" +
     "\n" +
